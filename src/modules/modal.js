@@ -8,10 +8,6 @@ const modal = () => {
     const callModal = document.querySelector(".header-modal");
     const serviceModal = document.querySelector(".services-modal");
     const imageOverlay = document.querySelectorAll(".document-overlay");
-    const imageBlock = document.querySelectorAll(".text-center a");
-    const image = document.querySelectorAll("a .img-responsive");
-    const divImageBlock = document.querySelectorAll(".text-center div.col-sm-4");
-    console.log(divImageBlock);
 
     imageOverlay.forEach((overlay) => {
         overlay.style.display = "none";
