@@ -11,7 +11,6 @@ const modal = () => {
     const imageBlock = document.querySelectorAll(".text-center a");
     const image = document.querySelectorAll("a .img-responsive");
     const divImageBlock = document.querySelectorAll(".text-center div.col-sm-4");
-    console.log(divImageBlock);
 
     imageOverlay.forEach((overlay) => {
         overlay.style.display = "none";
