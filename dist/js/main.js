@@ -1,1 +1,136 @@
-(()=>{"use strict";const e=({timing:e,draw:t,duration:l})=>{let o=performance.now();requestAnimationFrame((function r(s){let n=(s-o)/l;n>1&&(n=1);let c=e(n);t(c),n<1&&requestAnimationFrame(r)}))},t=(e,t)=>{const l=document.querySelector(t);if(!l)return;const o=l.querySelectorAll(".count_1 span"),r=l.querySelectorAll(".count_2 span"),s=l.querySelectorAll(".count_3 span"),n=l.querySelectorAll(".count_4 span"),c=()=>{const t=(new Date).getTime();let l=(new Date(e).getTime()-t)/1e3,i=Math.floor(l%60),y=Math.floor(l/60%60),d=Math.floor(l/60/60%24),u=Math.floor(l/60/60/24);a(o,u),a(r,d),a(s,y),a(n,i);let m=setTimeout(c,1e3);l<0&&(clearTimeout(m),a(o,"0"),a(r,"0"),a(s,"0"),a(n,"0"))},a=(e,t)=>{e.forEach((e=>{e.textContent=i(t)}))},i=e=>(e<10&&(e="0"+e),e);c()};(()=>{const t=document.querySelector("body"),l=document.querySelector(".overlay"),o=document.querySelector(".header-modal"),r=document.querySelector(".services-modal");document.querySelectorAll(".document-overlay").forEach((e=>{e.style.display="none"})),t.addEventListener("click",(t=>{t.target.closest(".button .btn")&&(t.preventDefault(),l.style.display="block",o.style.display="block",e({duration:400,timing:e=>e,draw(e){o.style.top="0%",o.style.top=50*e+"%"}})),t.target.closest(".service-button .btn")&&(t.preventDefault(),l.style.display="block",r.style.display="block",e({duration:400,timing:e=>e,draw(e){r.style.top="0%",r.style.top=50*e+"%"}})),t.target.matches("span[title ~= Close]")&&(l.style.display="none",r.style.display="none",o.style.display="none")}))})(),(()=>{const e=document.querySelector("body"),t=document.getElementById("services"),l=document.querySelector(".smooth-scroll");l.style.display="none",document.addEventListener("scroll",(()=>{t.getBoundingClientRect().top>542?l.style.display="none":l.style.display="block"})),l.addEventListener("click",(()=>{e.scrollIntoView({behavior:"smooth"})}))})(),t("25 march 2022",".okna"),t("30 march 2022",".balkony"),t("5 april 2022",".kuhni"),(()=>{const e=document.querySelector("body"),t=document.querySelectorAll(".benefits__item"),l=document.querySelectorAll(".service-block"),o=(e,t,l,o=576)=>{if(e.forEach((e=>{e.style.display="none"})),screen.width>=o)for(let l=0;l<t;l++)e[l].style.display="block";else for(let t=0;t<l;t++)e[t].style.display="block"};o(t,3,2),o(l,2,1);const r=e=>{let t=[...e].filter((e=>"block"===e.style.display)),l=[...e].findIndex((e=>"block"===e.style.display))+t.length;l<e.length&&(t[0].style.display="none",e[l].style.display="block")},s=e=>{e=[...e].reverse(),r(e)};e.addEventListener("click",(e=>{e.target.closest(".benefits__arrow")&&(e.target.closest(".benefits__arrow--right")?r(t):s(t)),e.target.closest(".services__arrow")&&(e.target.closest(".services__arrow--right")?r(l):s(l))}))})()})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./index.js":
+/*!******************!*\
+  !*** ./index.js ***!
+  \******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/scroll */ \"./modules/scroll.js\");\n/* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/timer */ \"./modules/timer.js\");\n/* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/slider */ \"./modules/slider.js\");\n\r\n\r\n\r\n\r\n\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\r\n\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"25 march 2022\", \".okna\");\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"30 march 2022\", \".balkony\");\r\n(0,_modules_timer__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(\"5 april 2022\", \".kuhni\");\r\n\r\n(0,_modules_slider__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\r\n\n\n//# sourceURL=webpack:///./index.js?");
+
+/***/ }),
+
+/***/ "./modules/helpers.js":
+/*!****************************!*\
+  !*** ./modules/helpers.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"animate\": () => (/* binding */ animate)\n/* harmony export */ });\n\r\n\r\nconst animate = ({ timing, draw, duration }) => {\r\n    let start = performance.now();\r\n\r\n    requestAnimationFrame(function animate(time) {\r\n        // timeFraction изменяется от 0 до 1\r\n        let timeFraction = (time - start) / duration;\r\n        if (timeFraction > 1) timeFraction = 1;\r\n\r\n        // вычисление текущего состояния анимации\r\n        let progress = timing(timeFraction);\r\n\r\n        draw(progress); // отрисовать её\r\n\r\n        if (timeFraction < 1) {\r\n            requestAnimationFrame(animate);\r\n        }\r\n    });\r\n};\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./modules/helpers.js?");
+
+/***/ }),
+
+/***/ "./modules/modal.js":
+/*!**************************!*\
+  !*** ./modules/modal.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers */ \"./modules/helpers.js\");\n\r\n\r\n\r\n\r\nconst modal = () => {\r\n    const body = document.querySelector(\"body\");\r\n    const overlay = document.querySelector(\".overlay\");\r\n    const callModal = document.querySelector(\".header-modal\");\r\n    const serviceModal = document.querySelector(\".services-modal\");\r\n    const imageOverlay = document.querySelectorAll(\".document-overlay\");\r\n\r\n    imageOverlay.forEach((overlay) => {\r\n        overlay.style.display = \"none\";\r\n    });\r\n\r\n    body.addEventListener(\"click\", (e) => {\r\n        if (e.target.closest(\".button .btn\")) {\r\n            e.preventDefault();\r\n            overlay.style.display = \"block\";\r\n            callModal.style.display = \"block\";\r\n            (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n                duration: 400,\r\n                timing(timeFraction) {\r\n                    return timeFraction;\r\n                },\r\n                draw(progress) {\r\n                    callModal.style.top = 0 + \"%\";\r\n                    callModal.style.top = progress * 50 + \"%\";\r\n                },\r\n            });\r\n        }\r\n\r\n        if (e.target.closest(\".service-button .btn\")) {\r\n            e.preventDefault();\r\n            overlay.style.display = \"block\";\r\n            serviceModal.style.display = \"block\";\r\n            (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.animate)({\r\n                duration: 400,\r\n                timing(timeFraction) {\r\n                    return timeFraction;\r\n                },\r\n                draw(progress) {\r\n                    serviceModal.style.top = 0 + \"%\";\r\n                    serviceModal.style.top = progress * 50 + \"%\";\r\n                },\r\n            });\r\n        }\r\n\r\n        if (e.target.matches(\"span[title ~= Close]\")) {\r\n            overlay.style.display = \"none\";\r\n            serviceModal.style.display = \"none\";\r\n            callModal.style.display = \"none\";\r\n        }\r\n    });\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);\r\n\n\n//# sourceURL=webpack:///./modules/modal.js?");
+
+/***/ }),
+
+/***/ "./modules/scroll.js":
+/*!***************************!*\
+  !*** ./modules/scroll.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n\r\nconst smoothScroll = () => {\r\n    const body = document.querySelector(\"body\");\r\n    const services = document.getElementById(\"services\");\r\n    const scroll = document.querySelector(\".smooth-scroll\");\r\n\r\n    scroll.style.display = \"none\";\r\n\r\n    document.addEventListener(\"scroll\", () => {\r\n        let firstPage = services.getBoundingClientRect();\r\n        if (firstPage.top > 542) {\r\n            scroll.style.display = \"none\";\r\n        } else {\r\n            scroll.style.display = \"block\";\r\n        }\r\n    });\r\n\r\n    scroll.addEventListener(\"click\", () => {\r\n        body.scrollIntoView({\r\n            behavior: \"smooth\",\r\n        });\r\n    });\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (smoothScroll);\r\n\n\n//# sourceURL=webpack:///./modules/scroll.js?");
+
+/***/ }),
+
+/***/ "./modules/slider.js":
+/*!***************************!*\
+  !*** ./modules/slider.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n\r\nconst slider = () => {\r\n    const body = document.querySelector(\"body\");\r\n    const benefitBlock = document.querySelectorAll(\".benefits__item\");\r\n    const services = document.getElementById(\"services\");\r\n    const serviceBlock = services.querySelectorAll(\".col-md-12\");\r\n\r\n    //numberLarge - how many elements to show on the screen for large screen with screenWidthLarge width and higher\r\n    //numberSmall - how many elements to show on the screen for screen width lower then screenWidthLarge\r\n    const visibleSlider = (domElement, numberLarge, numberSmall, screenWidthLarge = 576) => {\r\n        domElement.forEach((item) => {\r\n            item.style.display = \"none\";\r\n        });\r\n\r\n        if (screen.width >= screenWidthLarge) {\r\n            for (let i = 0; i < numberLarge; i++) {\r\n                domElement[i].style.display = \"block\";\r\n            }\r\n        } else {\r\n            for (let i = 0; i < numberSmall; i++) {\r\n                domElement[i].style.display = \"block\";\r\n            }\r\n        }\r\n    };\r\n\r\n    visibleSlider(benefitBlock, 3, 1);\r\n    visibleSlider(serviceBlock, 2, 1);\r\n\r\n    const moveRight = (domElement) => {\r\n        //array of elements that are visible on the screen\r\n        let active = [...domElement].filter((n) => n.style.display === \"block\");\r\n        let visibleIndex = [...domElement].findIndex((n) => n.style.display === \"block\");\r\n        let nextIndex = visibleIndex + active.length;\r\n\r\n        if (nextIndex < domElement.length) {\r\n            active[0].style.display = \"none\";\r\n            domElement[nextIndex].style.display = \"block\";\r\n        } else {\r\n            return;\r\n        }\r\n    };\r\n\r\n    const moveLeft = (domElement) => {\r\n        domElement = [...domElement].reverse();\r\n        moveRight(domElement);\r\n    };\r\n\r\n    body.addEventListener(\"click\", (e) => {\r\n        if (e.target.closest(\".benefits__arrow\")) {\r\n            if (e.target.closest(\".benefits__arrow--right\")) {\r\n                moveRight(benefitBlock);\r\n            } else {\r\n                moveLeft(benefitBlock);\r\n            }\r\n        }\r\n\r\n        if (e.target.closest(\".services__arrow\")) {\r\n            if (e.target.closest(\".services__arrow--right\")) {\r\n                moveRight(serviceBlock);\r\n            } else {\r\n                moveLeft(serviceBlock);\r\n            }\r\n        }\r\n    });\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);\r\n\n\n//# sourceURL=webpack:///./modules/slider.js?");
+
+/***/ }),
+
+/***/ "./modules/timer.js":
+/*!**************************!*\
+  !*** ./modules/timer.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\r\n\r\nconst timer = (deadline, bodyClass) => {\r\n    const body = document.querySelector(bodyClass);\r\n    if (!body) {\r\n        return;\r\n    }\r\n    const days = body.querySelectorAll(\".count_1 span\");\r\n    const hours = body.querySelectorAll(\".count_2 span\");\r\n    const minutes = body.querySelectorAll(\".count_3 span\");\r\n    const seconds = body.querySelectorAll(\".count_4 span\");\r\n\r\n    const clock = () => {\r\n        const today = new Date().getTime();\r\n        const newDate = new Date(deadline).getTime();\r\n        //time in seconds\r\n        let diff = (newDate - today) / 1000;\r\n\r\n        //seconds without minutes\r\n        let diffS = Math.floor(diff % 60);\r\n        let diffM = Math.floor((diff / 60) % 60);\r\n        let diffH = Math.floor((diff / 60 / 60) % 24);\r\n        let diffD = Math.floor(diff / 60 / 60 / 24);\r\n\r\n        insertTime(days, diffD);\r\n        insertTime(hours, diffH);\r\n        insertTime(minutes, diffM);\r\n        insertTime(seconds, diffS);\r\n\r\n        let tick = setTimeout(clock, 1000);\r\n        if (diff < 0) {\r\n            clearTimeout(tick);\r\n            insertTime(days, \"0\");\r\n            insertTime(hours, \"0\");\r\n            insertTime(minutes, \"0\");\r\n            insertTime(seconds, \"0\");\r\n        }\r\n    };\r\n\r\n    const insertTime = (domElement, value) => {\r\n        domElement.forEach((element) => {\r\n            element.textContent = addZero(value);\r\n        });\r\n    };\r\n\r\n    const addZero = (i) => {\r\n        if (i < 10) {\r\n            i = \"0\" + i;\r\n        }\r\n        return i;\r\n    };\r\n\r\n    clock();\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\r\n\n\n//# sourceURL=webpack:///./modules/timer.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./index.js");
+/******/ 	
+/******/ })()
+;

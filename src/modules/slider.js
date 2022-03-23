@@ -3,7 +3,8 @@
 const slider = () => {
     const body = document.querySelector("body");
     const benefitBlock = document.querySelectorAll(".benefits__item");
-    const serviceBlock = document.querySelectorAll(".service-block");
+    const services = document.getElementById("services");
+    const serviceBlock = services.querySelectorAll(".col-md-12");
 
     //numberLarge - how many elements to show on the screen for large screen with screenWidthLarge width and higher
     //numberSmall - how many elements to show on the screen for screen width lower then screenWidthLarge
@@ -23,7 +24,7 @@ const slider = () => {
         }
     };
 
-    visibleSlider(benefitBlock, 3, 2);
+    visibleSlider(benefitBlock, 3, 1);
     visibleSlider(serviceBlock, 2, 1);
 
     const moveRight = (domElement) => {
