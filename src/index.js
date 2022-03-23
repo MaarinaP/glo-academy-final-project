@@ -4,6 +4,7 @@ import timer from "./modules/timer";
 import slider from "./modules/slider";
 import valid from "./modules/valid";
 import calc from "./modules/calc";
+import form from "./modules/form";
 
 modal();
 smoothScroll();
@@ -15,3 +16,4 @@ timer("5 april 2022", ".kuhni");
 slider();
 valid();
 calc();
+form();
