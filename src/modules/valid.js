@@ -13,8 +13,8 @@ const valid = () => {
 
         if (e.target.matches("input[name=phone]")) {
             e.target.value = e.target.value.replace(validNumber, "");
-            if (e.target.value.length > 16) {
-                e.target.value = e.target.value.substring(0, 16);
+            if (e.target.value.length > 17) {
+                e.target.value = e.target.value.substring(0, 17);
             }
         }
     });
