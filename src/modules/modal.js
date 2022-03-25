@@ -18,10 +18,10 @@ const modal = () => {
         close.className = "close header-modal__close";
         close.innerHTML = "X";
         close.style.top = "30px";
-        close.style.right = "40px";
+        close.style.right = "130px";
         close.style.color = "black";
         modalImg.className = "modal-image";
-        modalImg.style.width = "95%";
+        modalImg.style.width = "75%";
         overlay.append(close);
         overlay.append(modalImg);
         overlay.style.display = "none";
@@ -85,19 +85,6 @@ const modal = () => {
             callModal.style.display = "none";
         }
 
-        // if (e.target.closest(".sertificate-document")) {
-        //     e.preventDefault();
-        //     modal.forEach((overlay) => {
-        //         if (e.target === overlay) {
-        //             overlay.style.display = "block";
-        //         }
-        //     });
-        //     console.log(e.target);
-        //     console.log(modal);
-        //     // modal.style.display = "block";
-        //     // modalImage.src = this.src;
-        // }
-
         if (e.target.closest(".modal-image")) {
             e.preventDefault();
         }
@@ -105,7 +92,7 @@ const modal = () => {
         if (e.target.closest(".close")) {
             e.preventDefault();
             overlay.style.display = "none";
-            console.dir(e.target);
+            e.target.parentNode.style.display = "none";
         }
     });
 };
