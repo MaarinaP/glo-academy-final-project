@@ -3,7 +3,7 @@
 const valid = () => {
     const body = document.querySelector("body");
 
-    const validName = /[^a-zа-я]/gi;
+    const validName = /[^a-zа-я ]/gi;
     const validNumber = /[^\+0-9]/gi;
 
     body.addEventListener("input", (e) => {
