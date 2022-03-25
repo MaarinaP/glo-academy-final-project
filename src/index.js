@@ -9,7 +9,7 @@ import form from "./modules/form";
 modal();
 smoothScroll();
 
-timer("25 march 2022", ".okna");
+timer("31 march 2022", ".okna");
 timer("30 march 2022", ".balkony");
 timer("5 april 2022", ".kuhni");
 

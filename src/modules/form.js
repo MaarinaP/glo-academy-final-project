@@ -2,6 +2,13 @@
 
 const form = () => {
     const body = document.querySelector("body");
+    const input = document.querySelectorAll(".form-control");
+
+    const clearForm = () => {
+        input.forEach((input) => {
+            input.value = "";
+        });
+    };
 
     const sendData = (data) => {
         return fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -30,6 +37,8 @@ const form = () => {
 
         if (formBody.fio && formBody.phone) {
             sendData(formBody);
+            alert("Спасибо, ваша форма отправлена");
+            clearForm();
         } else {
             alert("Пожалуйста, заполните все поля формы");
         }
